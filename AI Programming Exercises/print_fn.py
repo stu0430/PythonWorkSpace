@@ -61,13 +61,13 @@ def main():
     for i, fn in enumerate(fns):
         print(f"{i + 1}. {fn}")
         
-    fn_sel    = util.int_get('출력할 함수 번호를 선택하세요 : ', minval=1, maxval=3, default=1)
-    x_min     = util.int_get('x의 최솟값을 입력하세요 :', minval=-15, default=-10)
-    x_max     = util.int_get('x의 최댓값을 입력하세요 :', minval=x_min+3, maxval=15, default=10)
-    y_min     = util.int_get('y의 최솟값을 입력하세요 :', minval=-15, default=-10)
-    y_max     = util.int_get('y의 최댓값을 입력하세요 :', minval=y_min+3, maxval=15, default=10)
-    gr_width  = util.int_get('그래프의 폭을 입력하세요 :', minval=20, default=70)
-    gr_heigth = util.int_get('그래프의 높이를 입력하세요 :', minval=20, default=70)
+    fn_sel    = util.int_get('>>> 출력할 함수 번호를 선택하세요 : ', minval=1, maxval=3, default=1)
+    x_min     = util.int_get('>>> x의 최솟값을 입력하세요 :', minval=-15, default=-10)
+    x_max     = util.int_get('>>> x의 최댓값을 입력하세요 :', minval=x_min+3, maxval=15, default=10)
+    y_min     = util.int_get('>>> y의 최솟값을 입력하세요 :', minval=-15, default=-10)
+    y_max     = util.int_get('>>> y의 최댓값을 입력하세요 :', minval=y_min+3, maxval=15, default=10)
+    gr_width  = util.int_get('>>> 그래프의 폭을 입력하세요 :', minval=20, default=70)
+    gr_heigth = util.int_get('>>> 그래프의 높이를 입력하세요 :', minval=20, default=70)
 
     if fn_sel == 1:
         print_fn(lambda x: x - 3, x_min, x_max, y_min, y_max, gr_width, gr_heigth)

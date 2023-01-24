@@ -154,7 +154,7 @@ def main():
     score = INIT_SCORE
 
     while True:
-        game_num = util.int_get('게임 유형을 선택하세요(1.개인게임, 2.딜러대결, 3.종료):', minval=1, maxval=3, default=1)
+        game_num = util.int_get('>>> 게임 유형을 선택하세요(1.개인게임, 2.딜러대결, 3.종료):', minval=1, maxval=3, default=1)
 
         if game_num == 1:
             score = game1(score)

@@ -30,7 +30,7 @@ def make_freqlist(input_text):
 def main():
     util.print_header('1-3 Caesar Decipher', '2022.09.21', '(c) Lee, Sang-Gwon')
     
-    cipher_file = input('암호문 파일명을 입력하세요 : ')
+    cipher_file = input('>>> 암호문 파일명을 입력하세요 : ')
     
     if not os.path.isfile(cipher_file):
         print('>>> [ERROR] 암호문 파일이 존재하지 않습니다!')

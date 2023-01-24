@@ -174,11 +174,11 @@ def main():
             displayBoard(gameBoard, cusPos)
 
             if isOmok(player, gameBoard):
-                print(f'Player {player}가 이겼습니다!')
+                print(f'>>> Player {player}가 이겼습니다!')
                 break
 
             elif isFull(gameBoard):
-                print('비겼습니다!')
+                print('>>> 비겼습니다!')
                 break
 
             player = PLAYERS[1] if player == PLAYERS[0] else PLAYERS[0]
