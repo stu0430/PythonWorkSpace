@@ -1,4 +1,4 @@
-from util import header
+from util import util
 
 def make_cipher(plaintext, key):
 
@@ -13,7 +13,7 @@ def make_cipher(plaintext, key):
     return ciphertext
 
 def main():
-    header.header_print('1-2 Caesar cipher', '2022.09.19', '(c) Lee, Sang-Gwon')
+    util.print_header('1-2 Caesar cipher', '2022.09.19', '(c) Lee, Sang-Gwon')
 
     plaintext = input('암호화할 문자을 입력하세요 : ')
     key       = int(input('Caesar Cipher 키값을 입력하세요 : '))

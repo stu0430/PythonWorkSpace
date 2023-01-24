@@ -5,8 +5,7 @@ from util import util
 NCARDS = 8
 INIT_SCORE = 100
 SUIT_TUPLE = ('Clubs', 'Diamonds', 'Hearts', 'Spades')  # 값이 큰 순서대로 배치
-RANK_TUPLE = ('Ace', '2', '3', '4', '5', '6', '7',
-              '8', '9', '10', 'Jack', 'Queen', 'King')
+RANK_TUPLE = ('Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King')
 
 def createDeck():
     deck = []
@@ -16,11 +15,9 @@ def createDeck():
             deck.append(card)
     return deck
 
-
 def shuffleCards(deck):
     random.shuffle(deck)
     return deck
-
 
 def getCards(deck, numCards):
     cardList = []
@@ -30,12 +27,9 @@ def getCards(deck, numCards):
     return cardList
 
 # 카드 목록을 출력
-
-
 def printCardList(cardList):
     for i in range(len(cardList)):
         print(f"{i+1}. {cardList[i]['suit']} {cardList[i]['rank']}")
-
 
 def game1(score):
 
@@ -88,7 +82,6 @@ def game1(score):
             print(f">>> 게임이 끝났습니다. 당신의 최종 점수는 {score}점입니다.")
 
     return score
-
 
 def game2(score):
 
@@ -155,15 +148,13 @@ def game2(score):
 
     return score
 
-
 def main():
     util.print_header("2-2 Higher or Lower", "2022.09.27", "(c) Lee, Sang-gwon")
 
     score = INIT_SCORE
 
     while True:
-        game_num = util.int_get(
-            '게임 유형을 선택하세요(1.개인게임, 2.딜러대결, 3.종료):', minval=1, maxval=3, default=1)
+        game_num = util.int_get('게임 유형을 선택하세요(1.개인게임, 2.딜러대결, 3.종료):', minval=1, maxval=3, default=1)
 
         if game_num == 1:
             score = game1(score)
@@ -172,7 +163,6 @@ def main():
         else:
             print(f">>> 당신의 최종 점수는 {score}점입니다. 게임을 종료합니다.\n")
             break
-
 
 if __name__ == '__main__':
     main()

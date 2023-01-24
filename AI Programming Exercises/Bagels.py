@@ -1,5 +1,5 @@
+from util import util
 from random import shuffle
-from util import header
 
 MAX_GUESSES = 10
 NUM_DIGITS = 3
@@ -62,7 +62,7 @@ def getGuessResult(secret, guess):
     return result
 
 def main():
-    header.header_print("2-1 Bagels Game", "2022.10.12", "(c) Lee, Sang-gwon")
+    util.print_header("2-1 Bagels Game", "2022.10.12", "(c) Lee, Sang-gwon")
     
     print(f'\n>>> {MAX_GUESSES}번의 기회가 주어집니다.')
     secretNum = getSecretNum()

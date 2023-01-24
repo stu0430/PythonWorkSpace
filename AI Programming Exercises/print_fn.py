@@ -1,25 +1,4 @@
 from util import util
-
-def int_get(input_str, minval=-15, maxval=None, default=None):
-
-    while True:
-        val = input(f'{input_str}[{str(default)}] ')
-        if val == '' and default is not None:
-            return default
-        elif set(val) <= set("-0123456789"):
-            val = int(val)
-            if maxval is not None:
-                if minval <= val <= maxval:
-                    return val
-                else:
-                    print(">>> [ERROR] 입력값이 범위를 벗어났습니다!")
-            else:
-                if minval <= val:
-                    return val
-                else:
-                    print(">>> [ERROR] 입력값이 범위를 벗어났습니다!")
-        else:
-            print(">>> [ERROR] 정수를 입력해주세요!")
             
 def print_fn(fn, x_min, x_max, y_min, y_max, width, heigth):
     
@@ -82,13 +61,13 @@ def main():
     for i, fn in enumerate(fns):
         print(f"{i + 1}. {fn}")
         
-    fn_sel    = int_get('출력할 함수 번호를 선택하세요 : ', minval=1, maxval=3, default=1)
-    x_min     = int_get('x의 최솟값을 입력하세요 :', minval=-15, default=-10)
-    x_max     = int_get('x의 최댓값을 입력하세요 :', minval=x_min+3, maxval=15, default=10)
-    y_min     = int_get('y의 최솟값을 입력하세요 :', minval=-15, default=-10)
-    y_max     = int_get('y의 최댓값을 입력하세요 :', minval=y_min+3, maxval=15, default=10)
-    gr_width  = int_get('그래프의 폭을 입력하세요 :', minval=20, default=70)
-    gr_heigth = int_get('그래프의 높이를 입력하세요 :', minval=20, default=70)
+    fn_sel    = util.int_get('출력할 함수 번호를 선택하세요 : ', minval=1, maxval=3, default=1)
+    x_min     = util.int_get('x의 최솟값을 입력하세요 :', minval=-15, default=-10)
+    x_max     = util.int_get('x의 최댓값을 입력하세요 :', minval=x_min+3, maxval=15, default=10)
+    y_min     = util.int_get('y의 최솟값을 입력하세요 :', minval=-15, default=-10)
+    y_max     = util.int_get('y의 최댓값을 입력하세요 :', minval=y_min+3, maxval=15, default=10)
+    gr_width  = util.int_get('그래프의 폭을 입력하세요 :', minval=20, default=70)
+    gr_heigth = util.int_get('그래프의 높이를 입력하세요 :', minval=20, default=70)
 
     if fn_sel == 1:
         print_fn(lambda x: x - 3, x_min, x_max, y_min, y_max, gr_width, gr_heigth)

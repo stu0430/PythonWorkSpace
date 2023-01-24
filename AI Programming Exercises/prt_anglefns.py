@@ -1,15 +1,5 @@
+from util import util
 from math import sin, cos, radians
-from util import header
-
-# '-' 출력 함수
-def print_hyphen(count): 
-    for i in range(count):
-        print('-', end='')
-
-# 공백 출력 함수
-def print_space(count): 
-    for i in range(count):
-        print(' ', end='')
 
 # sin, cos 값 출력 함수
 def print_graph(fn, width, start_deg): 
@@ -17,7 +7,7 @@ def print_graph(fn, width, start_deg):
     print("%0.3d" % start_deg, end='')
     
     # 좌우측 공백
-    left_half = round((width-1) / 2)
+    left_half = round((width - 1) / 2)
     right_half = width - left_half
     
     # 각도를 통한 sin 값 계산
@@ -27,34 +17,34 @@ def print_graph(fn, width, start_deg):
     elif fn == 'cos':
         value = round(cos(radians(start_deg)), 3)
     # sin, cos 값의 위치
-    loc = round(((value+1)*(width//2)))
+    loc = round(((value + 1) * (width // 2)))
     
     # sin, cos 값이 양수일 때
     if value > 0:
-        print_space(left_half)
+        util.char_line(' ', left_half)
         print('|', end='')
-        print_space(loc-1-left_half-1)
+        util.char_line(' ', loc - 1 - left_half - 1)
         print('*', end='')
-        print_space(width-loc+2)
+        util.char_line(' ', width - loc + 2)
     
     # sin, cos 값이 음수일 때    
     elif value < 0:
-        print_space(loc)
+        util.char_line(' ', loc)
         print('*', end='')
-        print_space(left_half-loc-1)
+        util.char_line(' ', left_half - loc - 1)
         print('|', end='')
-        print_space(right_half)
+        util.char_line(' ', right_half)
         
     # sin, cos 값이 0일 때
     else :
         if str(value)[0] == '-':
-            print_space(left_half)
+            util.char_line(' ', left_half)
             print('*', end='')
-            print_space(right_half)
+            util.char_line(' ', right_half)
         else:
-            print_space(left_half)
+            util.char_line(' ', left_half)
             print('*', end='')
-            print_space(right_half + 1)
+            util.char_line(' ', right_half + 1)
     
     # 각도에 따른 sin, cos 값 출력
     print("%.3f" % value)
@@ -69,7 +59,7 @@ def print_anglefns(fn, start_deg, end_deg, width, length):
             start_deg += 10
 
 def main():
-    header.header_print('1-4 sine wave print', '2022.09.21', '(c) Lee, Sang-Gwon')
+    util.print_header('1-4 sine wave print', '2022.09.21', '(c) Lee, Sang-Gwon')
     
     # 필요한 정보 입력
     start_deg = int(input('시작 각도를 입력하세요 : '))
@@ -80,7 +70,7 @@ def main():
     
     # 사인파, 코사인파 출력          
     print(' x', end=' ')
-    print_hyphen(width)
+    util.char_line('-', width)
     print(f' {fn}(x)')
     print_anglefns(fn, start_deg, end_deg, width, length)
     
