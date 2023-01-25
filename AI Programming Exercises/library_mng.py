@@ -249,23 +249,6 @@ class AbortTransaction(Exception):
     def __str__(self):
         return self.msg
 
-def menu(msg, menuList):
-    print('[Menu]')
-    for i in range(len(menuList)):
-        print(f'{i+1}. {menuList[i]}')
-    print('0. 종료')
-    while True:
-        try:
-            num = int(input(msg))
-            if num == 0:
-                break
-            elif num > 0 and num <= len(menuList):
-                return num
-            else:
-                print(f'>>> [ERROR] 0 ~ {len(menuList)} 사이의 숫자를 입력하세요.')
-        except:
-            print('>>> [ERROR] 숫자를 입력하세요.')
-
 def main():
     util.print_header("3-3 Library management", "2022.11.19", "(c) Lee, Sang-gwon")
     
@@ -280,7 +263,7 @@ def main():
         
         if menuSel == 1:
             while True:
-                sel = menu(msg, libMenuList)
+                sel = util.menu(msg, libMenuList)
                 
                 try:
                     if sel == 1:
@@ -300,7 +283,7 @@ def main():
                 
         elif menuSel == 2:
             while True:
-                sel = menu(msg, userMenuList)
+                sel = util.menu(msg, userMenuList)
                 
                 try:
                     if sel == 1:

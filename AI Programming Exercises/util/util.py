@@ -79,3 +79,20 @@ def getChar(msg, allowedChars):
             return choice.lower()
         else:
             print(f'>>> [ERROR] 허용된 문자는 {allowedChars} 중 하나 입니다.')
+
+def menu(msg, menuList):
+    print('[Menu]')
+    for i in range(len(menuList)):
+        print(f'{i+1}. {menuList[i]}')
+    print('0. 종료')
+    while True:
+        try:
+            num = int(input(msg))
+            if num == 0:
+                break
+            elif num > 0 and num <= len(menuList):
+                return num
+            else:
+                print(f'>>> [ERROR] 0 ~ {len(menuList)} 사이의 숫자를 입력하세요.')
+        except:
+            print('>>> [ERROR] 숫자를 입력하세요.')
