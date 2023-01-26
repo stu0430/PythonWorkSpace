@@ -1,3 +1,4 @@
+import csv
 from util import util
 
 class Book():
@@ -79,9 +80,9 @@ class Member():
         print(f'예약 목록 : {[book.title for book in self.reserveList] if len(self.reserveList) != 0 else "없음"}\n')
     
 class Library():
-    def __init__(self):
-        self.books = []
-        self.members = []
+    def __init__(self, books=[], members=[]):
+        self.books = books
+        self.members = members
         
     def addBook(self):
         print('\n[도서 등록]')
@@ -250,9 +251,16 @@ class AbortTransaction(Exception):
         return self.msg
 
 def main():
-    util.print_header("3-3 Library management", "2022.11.19", "(c) Lee, Sang-gwon")
+    util.print_header("3-3 Library management", "2023.01.26", "(c) Lee, Sang-gwon")
     
-    lib = Library()
+    books = []
+    
+    with open('books.csv', encoding='utf-8-sig') as f:
+        for idx, i in enumerate(csv.reader(f)):
+            if idx != 0:
+                books.append(Book(*i))
+    
+    lib = Library(books=books)
     
     msg = '>>> 원하는 업무를 선택하세요 : '
     libMenuList = ['도서 등록', '대출 현황 보기', '예약 현황 보기', '전체 회원 보기']
